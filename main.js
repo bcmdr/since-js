@@ -8,10 +8,11 @@ function showTimer() {
   document.getElementById('title-text').textContent = "It's Been..."
   document.getElementById('motivation-text').textContent = "...You're doing great!";
   updateTimer();
-  var refresh = setInterval(showTimer, 60 * 1000);
+  var refresh = setInterval(updateTimer, 60 * 1000);
   document
     .getElementById('stop-timer')
     .addEventListener('click', function (event) { 
+      if (!confirm('Reset the timer?')) return;
       clearInterval(refresh);
       document.getElementById('start-timer').hidden = false;
       document.getElementById('stop-timer').hidden = true;
